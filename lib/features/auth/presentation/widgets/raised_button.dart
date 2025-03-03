@@ -3,21 +3,27 @@ import 'package:flutter/material.dart';
 
 class RaisedButton extends StatelessWidget {
   final String text;
-   const RaisedButton({super.key ,required this.text});
+  const RaisedButton({super.key, required this.text});
 
   @override
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        gradient: LinearGradient(colors: [
-          AppPallete.gradient1,
-          AppPallete.gradient2
-        ]),
-        color: Colors.transparent,
+        borderRadius: BorderRadius.circular(10),
+        gradient: LinearGradient(
+          colors: [AppPallete.gradient1, AppPallete.gradient2],
+          begin: Alignment.bottomLeft,
+          end: Alignment.topRight
+        ),
       ),
       child: ElevatedButton(
-        onPressed: (){},
-        child:Text(text),
+        style: ElevatedButton.styleFrom(
+          fixedSize: Size(395, 55),
+          backgroundColor: AppPallete.transparentColor,
+          shadowColor: AppPallete.transparentColor,
+        ),
+        onPressed: () {},
+        child: Text(text, style: TextStyle(fontSize: 17,fontWeight: FontWeight.w600),),
       ),
     );
   }
