@@ -5,6 +5,7 @@ import 'package:blog/features/auth/presentation/widgets/raised_button.dart';
 import 'package:flutter/material.dart';
 
 class SignupPage extends StatefulWidget {
+  static  route() => MaterialPageRoute(builder: (context) =>SignupPage());
   const SignupPage({super.key});
 
   @override
@@ -41,7 +42,7 @@ class _SignupPageState extends State<SignupPage> {
               RaisedButton(text: "Sign Up"),
               SizedBox(height: 10),
               GestureDetector(
-                onTap: (){Navigator.of(context).push(MaterialPageRoute(builder: (context) =>LoginPage(ds)));},
+                onTap: (){Navigator.of(context).push(LoginPage.route());},
                 child: RichText(
                   text: TextSpan(
                     text: "Already have an account? ",
