@@ -1,4 +1,5 @@
 import 'package:blog/core/theme/app_pallete.dart';
+import 'package:blog/features/auth/presentation/pages/login.dart';
 import 'package:blog/features/auth/presentation/widgets/auth_field.dart';
 import 'package:blog/features/auth/presentation/widgets/raised_button.dart';
 import 'package:flutter/material.dart';
@@ -39,19 +40,22 @@ class _SignupPageState extends State<SignupPage> {
               SizedBox(height: 20),
               RaisedButton(text: "Sign Up"),
               SizedBox(height: 10),
-              RichText(
-                text: TextSpan(
-                  text: "Already have an account? ",
-                  style: Theme.of(context).textTheme.titleMedium,
-                  children: [
-                    TextSpan(
-                      text: "Sign In",
-                      style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                        color: AppPallete.gradient2,
-                        fontWeight: FontWeight.bold,
+              GestureDetector(
+                onTap: (){Navigator.of(context).push(MaterialPageRoute(builder: (context) =>LoginPage(ds)));},
+                child: RichText(
+                  text: TextSpan(
+                    text: "Already have an account? ",
+                    style: Theme.of(context).textTheme.titleMedium,
+                    children: [
+                      TextSpan(
+                        text: "Sign In",
+                        style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                          color: AppPallete.gradient2,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
             ],
