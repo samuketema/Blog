@@ -1,9 +1,11 @@
 import 'package:blog/core/theme/app_pallete.dart';
+import 'package:blog/features/auth/presentation/pages/signup_page.dart';
 import 'package:blog/features/auth/presentation/widgets/auth_field.dart';
 import 'package:blog/features/auth/presentation/widgets/raised_button.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatefulWidget {
+  static  route() => MaterialPageRoute(builder: (context) =>LoginPage());
   const LoginPage({super.key});
 
   @override
@@ -40,7 +42,7 @@ class _LoginPageState extends State<LoginPage> {
               RaisedButton(text: "Log In"),
               SizedBox(height: 10),
               GestureDetector(
-                onTap: (){Navigator.of(context).push(MaterialPageRoute(builder: (context) =>LoginPage()));},
+                onTap: (){Navigator.of(context).push(SignupPage.route());},
                 child: RichText(
                   text: TextSpan(
                     text: 'Don\'t have an account? ',
