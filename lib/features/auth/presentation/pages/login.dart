@@ -17,6 +17,14 @@ class _LoginPageState extends State<LoginPage> {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
   final formKey = GlobalKey<FormState>();
+
+ @override
+  void dispose() {
+    nameController.dispose();
+    emailController.dispose();
+    passwordController.dispose();
+    super.dispose();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,9 +39,6 @@ class _LoginPageState extends State<LoginPage> {
                 "Log In.",
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 27),
               ),
-              SizedBox(height:20),
-              AuthField(hintText: 'name',
-              controller: nameController,),
               SizedBox(height: 20),
               AuthField(hintText: 'email',controller: emailController,),
               SizedBox(height: 20),
