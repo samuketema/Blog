@@ -1,9 +1,16 @@
-import 'package:blog/core/theme/app_pallete.dart';
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 
+import 'package:blog/core/theme/app_pallete.dart';
+
 class RaisedButton extends StatelessWidget {
+  final VoidCallback onPressed;
   final String text;
-  const RaisedButton({super.key, required this.text});
+  const RaisedButton({
+    super.key,
+    required this.onPressed,
+    required this.text,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +29,7 @@ class RaisedButton extends StatelessWidget {
           backgroundColor: AppPallete.transparentColor,
           shadowColor: AppPallete.transparentColor,
         ),
-        onPressed: () {},
+        onPressed: onPressed,
         child: Text(text, style: TextStyle(fontSize: 17,fontWeight: FontWeight.w600),),
       ),
     );
