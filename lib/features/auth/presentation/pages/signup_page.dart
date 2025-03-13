@@ -48,7 +48,10 @@ class _SignupPageState extends State<SignupPage> {
               SizedBox(height: 20),
               AuthField(hintText: 'Password',controller: passwordController,),
               SizedBox(height: 20),
-              RaisedButton(text: "Sign Up"),
+              RaisedButton(text: "Sign Up",
+              onPressed: () {
+                
+              },),
               SizedBox(height: 10),
               GestureDetector(
                 onTap: (){Navigator.of(context).push(LoginPage.route());},
