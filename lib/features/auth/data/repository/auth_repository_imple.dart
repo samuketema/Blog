@@ -7,9 +7,7 @@ import 'package:blog/features/auth/domain/repository/auth_repository.dart';
 
 class AuthRepositoryImple implements AuthRepository {
   final AuthRemoteDatasource remoteDataSource;
-  AuthRepositoryImple({
-    required this.remoteDataSource,
-  });
+  AuthRepositoryImple({required this.remoteDataSource});
   @override
   Future<Either<Failure, String>> loginWithEmailPassword({
     required String email,
@@ -24,11 +22,15 @@ class AuthRepositoryImple implements AuthRepository {
     required String name,
     required String email,
     required String password,
-  })async {
+  }) async {
     try {
-      final userId = await remoteDataSource.signupWithEmailPassword(name: name, email: email, password: password);
+      final userId = await remoteDataSource.signupWithEmailPassword(
+        name: name,
+        email: email,
+        password: password,
+      );
       return right(userId);
-    } on ServerException catch  (e) {
+    } on ServerException catch (e) {
       return left(Failure(e.message));
     }
   }
